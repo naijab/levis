@@ -16,13 +16,14 @@ $toolsDir   = "$(Split-Path -parent $MyInvocation.MyCommand.Definition)"
 # Community Repo: Use official urls for non-redist binaries or redist where total package size is over 200MB
 # Internal/Organization: Download from internal location (internet sources are unreliable)
 $url        = 'https://github.com/kubeopsskills/levis/releases/download/1.0.16-alpha/levis-1.0.16-alpha-win-x64.zip'
+$url64      = 'https://github.com/kubeopsskills/levis/releases/download/1.0.16-alpha/levis-1.0.16-alpha-win-x64.zip'
 
 $packageArgs = @{
   packageName   = $env:ChocolateyPackageName
   unzipLocation = $toolsDir
   fileType      = 'exe' #only one of these: exe, msi, msu
   url           = $url
-  url64         = $url
+  url64         = $url64
   #file         = $fileLocation
 
   softwareName  = 'levis*' #part or all of the Display Name as you see it in Programs and Features. It should be enough to be unique
@@ -55,7 +56,7 @@ $packageArgs = @{
   #validExitCodes= @(0) #please insert other valid exit codes here
 }
 
-Install-ChocolateyPackage @packageArgs # https://docs.chocolatey.org/en-us/create/functions/install-chocolateypackage
+# Install-ChocolateyPackage @packageArgs # https://docs.chocolatey.org/en-us/create/functions/install-chocolateypackage
 #Install-ChocolateyZipPackage @packageArgs # https://docs.chocolatey.org/en-us/create/functions/install-chocolateyzippackage
 ## If you are making your own internal packages (organizations), you can embed the installer or
 ## put on internal file share and use the following instead (you'll need to add $file to the above)
