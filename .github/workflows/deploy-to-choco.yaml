@@ -1,4 +1,4 @@
-name: Deploy release to chocolatey
+name: Deploy release to Chocolatey
 
 on:
   release:
